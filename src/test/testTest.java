@@ -15,4 +15,8 @@ public class testTest {
         //修改返回的字符串的内容
         return "abcdefg. Hello jenkins, " ;
     }
+	public String sayHello3(){
+        //修改返回的字符串的内容
+        return "abcdefg. Hello jenkins, " ;
+    }
 }
