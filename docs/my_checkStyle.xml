@@ -1,0 +1,549 @@
+ï»¿<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+    "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
+    "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
+    
+<module name="Checker">
+
+    <module name="TreeWalker">
+    
+    
+        <!-- =============×¢ÊÍ¼ì²é============= -->
+        <!-- ¼ì²éÀàºÍ½Ó¿ÚµÄjavadoc Ä¬ÈÏ²»¼ì²éauthor ºÍversion tags         
+            authorFormat: ¼ì²éauthor±êÇ©µÄ¸ñÊ½  
+            versionFormat: ¼ì²éversion±êÇ©µÄ¸ñÊ½  
+            scope: ¿ÉÒÔ¼ì²éµÄÀàµÄ·¶Î§£¬ÀýÈç£ºpublicÖ»ÄÜ¼ì²épublicÐÞÊÎµÄÀà£¬private¿ÉÒÔ¼ì²éËùÓÐµÄÀà  
+            excludeScope: ²»ÄÜ¼ì²éµÄÀàµÄ·¶Î§£¬ÀýÈç£ºpublic£¬publicµÄÀà½«²»±»¼ì²é£¬µ«·ÃÎÊÈ¨ÏÞÐ¡ÓÚpublicµÄÀàÈÔÈ»»á¼ì²é£¬ÆäËûµÄÈ¨ÏÞÒÔ´ËÀàÍÆ  
+            tokens: ¸ÃÊôÐÔÊÊÓÃµÄÀàÐÍ£¬ÀýÈç£ºCLASS_DEF,INTERFACE_DEF -->  
+        <module name="JavadocType">  
+            <property name="authorFormat" value="\S"/>  
+            <property name="scope" value="protected"/>  
+            <property name="versionFormat" value="\$Revision.*\$"/>  
+            <property name="excludeScope" value="public"/>  
+            <property name="tokens" value="CLASS_DEF,INTERFACE_DEF"/>  
+        </module>  
+    
+        <!-- ¼ì²é·½·¨µÄjavadocµÄ×¢ÊÍ  
+            scope: ¿ÉÒÔ¼ì²éµÄ·½·¨µÄ·¶Î§£¬ÀýÈç£ºpublicÖ»ÄÜ¼ì²épublicÐÞÊÎµÄ·½·¨£¬private¿ÉÒÔ¼ì²éËùÓÐµÄ·½·¨  
+            allowMissingParamTags: ÊÇ·ñºöÂÔ¶Ô²ÎÊý×¢ÊÍµÄ¼ì²é  
+            allowMissingThrowsTags: ÊÇ·ñºöÂÔ¶Ôthrows×¢ÊÍµÄ¼ì²é  
+            allowMissingReturnTag: ÊÇ·ñºöÂÔ¶Ôreturn×¢ÊÍµÄ¼ì²é -->  
+        <module name="JavadocMethod">    
+            <property name="scope" value="private"/>    
+            <property name="allowMissingParamTags" value="false"/>    
+            <property name="allowMissingThrowsTags" value="false"/>    
+            <property name="allowMissingReturnTag" value="false"/>    
+            <property name="tokens" value="METHOD_DEF"/>    
+            <property name="allowUndeclaredRTE" value="true"/>    
+            <property name="allowThrowsTagsForSubclasses" value="true"/>    
+            <!--ÔÊÐíget set ·½·¨Ã»ÓÐ×¢ÊÍ-->  
+            <property name="allowMissingPropertyJavadoc" value="true"/>  
+        </module>   
+        
+        <!-- ¼ì²é±äÁ¿ÊÇ·ñ¾ßÓÐJavadoc×¢ÊÍ
+            scope: ¼ì²é±äÁ¿µÄ·¶Î§£¬ÀýÈç£ºpublicÖ»ÄÜ¼ì²épublicÐÞÊÎµÄ±äÁ¿£¬private¿ÉÒÔ¼ì²éËùÓÐµÄ±äÁ¿ -->  
+        <module name="JavadocVariable">  
+            <property name="scope" value="private"/>  
+        </module>
+
+        
+        <!-- =============ÃüÃû¼ì²é============= -->
+        <!-- ¼ì²é³éÏóÀàµÄÃû³ÆÊÇ·ñ×ñÊØÃüÃû¹æÔ¼
+            format: ¶¨Òå³éÏóÀàµÄÃüÃû¹æÔò -->  
+        <module name="AbstractClassName">¡¡¡¡¡¡¡¡¡¡¡¡¡¡
+¡¡¡¡        <property name="format" value="^Abstract.*$|^.*Factory$"/> 
+        </module>
+
+        <!-- ¼ì²é³£Á¿£¨ÓÃstatic finalÐÞÊÎµÄ×Ö¶Î£©µÄÃû³ÆÊÇ·ñ×ñÊØÃüÃû¹æÔ¼
+            format: ¶¨ÒåÈ«¾Ö³£Á¿µÄÃüÃû¹æÔò -->  
+        <module name="ConstantName">  
+            <property name="format" value="^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$"/>  
+        </module>  
+        
+        <!-- ¼ì²é¾Ö²¿final±äÁ¿µÄÃû³ÆÊÇ·ñ×ñÊØÃüÃû¹æÔ¼
+            format: ¶¨Òå¾Ö²¿³£Á¿µÄÃüÃû¹æÔò -->  
+        <module name="LocalFinalVariableName">  
+            <property name="format" value="^[A_Z][A-Z0-9]*(_[A_Z0-9]+)*$"/>  
+        </module>  
+        
+        <!-- ¼ì²é¾Ö²¿±äÁ¿µÄÃû³ÆÊÇ·ñ×ñÊØÃüÃû¹æÔ¼
+            format: ¶¨Òå¾Ö²¿³£Á¿µÄÃüÃû¹æÔò -->  
+        <module name="LocalVariableName">  
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>  
+        </module>  
+        
+        <!-- ¼ì²é³ÉÔ±±äÁ¿£¨·Ç¾²Ì¬×Ö¶Î£©µÄÃû³ÆÊÇ·ñ×ñÊØÃüÃû¹æÔ¼
+            format: ¶¨Òå·Ç¾²Ì¬³ÉÔ±±äÁ¿µÄÃüÃû¹æÔò
+¡¡¡¡¡¡¡¡    applyToPublic: ÊÇ·ñÊÊÓÃÓÚpublicµÄ³ÉÔ±±äÁ¿
+¡¡¡¡¡¡¡¡    applyToProtected: ÊÇ·ñÊÊÓÃÓÚprotectedµÄ³ÉÔ±±äÁ¿
+¡¡¡¡¡¡¡¡    applyToPackage: ÊÇ·ñÊÊÓÃÓÚpackageµÄ³ÉÔ±±äÁ¿
+¡¡¡¡¡¡¡¡    applyToPrivate: ÊÇ·ñÊÊÓÃÓÚprivateµÄ³ÉÔ±±äÁ¿ -->  
+        <module name="MemberName">  
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>  
+            <property name="applyToPublic" value="true"/>  
+            <property name="applyToProtected" value="true"/>  
+            <property name="applyToPackage" value="true"/>  
+            <property name="applyToPrivate" value="true"/>  
+        </module>
+        
+        <!--¡¡¼ì²é·½·¨Ãû³ÆÊÇ·ñ×ñÊØÃüÃû¹æÔ¼
+            format: ¶¨Òå·½·¨ÃûµÄÃüÃû¹æÔò --> 
+        <module name="MethodName">  
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>  
+        </module>
+        
+        <!--¡¡¼ì²é°üÃû³ÆÊÇ·ñ×ñÊØÃüÃû¹æÔ¼
+            format: ¶¨Òå°üÃûµÄÃüÃû¹æÔò --> 
+        <module name="PackageName">  
+            <property name="format" value="^[a-z]+(\.[a-z][a-z0-9]*)*$"/>  
+        </module>  
+        
+        <!--¡¡¼ì²é²ÎÊýÃû³ÆÊÇ·ñ×ñÊØÃüÃû¹æÔ¼
+            format: ¶¨Òå²ÎÊýÃûµÄÃüÃû¹æÔò --> 
+        <module name="ParameterName">  
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>  
+        </module>
+        
+        <!--¡¡¼ì²é¾²Ì¬±äÁ¿£¨ÓÃstaticÐÞÊÎ£¬µ«Ã»ÓÃfinalÐÞÊÎµÄ×Ö¶Î£©µÄÃû³ÆÊÇ·ñ×ñÊØÃüÃû¹æÔ¼
+            format: ¶¨Òå¾²Ì¬±äÁ¿µÄÃüÃû¹æÔò --> 
+        <module name="StaticVariableName">  
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>  
+        </module>  
+        
+        <!--¡¡¼ì²éÀàµÄÃû³ÆÊÇ·ñ×ñÊØÃüÃû¹æÔ¼
+            format: ¶¨ÒåÀàºÍ½Ó¿ÚµÄÃüÃû¹æÔò
+¡¡¡¡¡¡¡¡    tokens: ¶¨Òå¹æÔòÊÊÓÃµÄÀàÐÍ£¬ÀýÈç£ºCLASS_DEF±íÊ¾Àà£¬INTERFACE_DEF ±íÊ¾½Ó¿Ú --> 
+        <module name="TypeName">  
+            <property name="format" value="^[A-Z][a-zA-Z0-9]*$"/>  
+            <property name="tokens" value="CLASS_DEF,INTERFACE_DEF"/>  
+        </module>
+        
+        
+        <!-- =============import¼ì²é=============-->
+        <!--¡¡¼ì²éÃ»ÓÐimportÓï¾äÊ¹ÓÃ*·ûºÅ
+            excludes: ¶¨Òå¿ÉÒÔÊ¹ÓÃ*µ¼ÈëµÄ°ü --> 
+        <module name="AvoidStarImport">  
+            <property name="excludes" value="java.io,java.util"/>  
+        </module>
+        
+        <!--¡¡¼ì²éÊÇ·ñµ¼ÈëÁËÖ¸¶¨µÄ·Ç·¨°ü --> 
+        <module name="IllegalImport"/>  
+        
+        <!--¡¡¼ì²éµ¼Èë°üµÄË³Ðò/·Ö×é
+            groups: ¶¨Òåµ¼Èë°üµÄË³Ðò£¬Ä¬ÈÏÒÔ×ÖÄ¸Ë³Ðòµ¼Èë
+¡¡¡¡¡¡¡¡    ordered: ¶¨Òå°üÊÇ·ñ±ØÐë°´¹æ¶¨µÄË³ÐòÏÔÊ¾
+¡¡¡¡¡¡¡¡    separated: ¶¨Òå°üÓë°üÖ®¼äÊÇ·ñÓ¦Ìí¼Ó¿Õ°×ÐÐ
+¡¡¡¡¡¡¡¡    caseSensitive: ÊÇ·ñÇø·Ö°üÃûµÄ´óÐ¡Ð´¡¡--> 
+        <module name="ImportOrder">  
+            <property name="groups" value="java,javax"/>  
+            <property name="ordered" value="true"/>  
+            <property name="separated" value="true"/>  
+            <property name="caseSensitive" value="true"/>  
+        </module>
+        
+        <!--¡¡¼ì²éÊÇ·ñ´æÔÚ¶àÓàµÄµ¼ÈëÓï¾ä --> 
+        <module name="RedundantImport"/>
+        
+        <!--¡¡¼ì²éÎ´Ê¹ÓÃµÄµ¼ÈëÓï¾ä -->
+        <module name="UnusedImports"/> 
+        
+        
+        <!-- =============³¤¶È¼ì²é============= -->
+        <!--¡¡¼ì²éÄäÃûÄÚ²¿ÀàµÄ³¤¶È
+            max: ¶¨ÒåÄäÃûÄÚ²¿Àà×î¶àÈÝÐíµÄÐÐÊý --> 
+        <module name="AnonInnerLength">  
+            <property name="max" value="20"/>  
+        </module>  
+        
+        <!--¡¡¼ì²éÒªÖ´ÐÐµÄÓï¾äµÄÊýÄ¿£¬½«¿ÉÖ´ÐÐÓï¾äµÄÊýÁ¿ÏÞÖÆÎªÒ»¸öÖ¸¶¨µÄÏÞÖµ
+            max: ¶¨ÒåËùÄÜÈÝÐíµÄÓï¾äµÄ×î¶àÊýÄ¿
+¡¡¡¡¡¡¡¡    tokens: ¶¨Òå¿ÉÒÔ¼ì²éµÄÀàÐÍ£¬ÀýÈç£ºCTOR_DEF,METHOD_DEF,STATIC_INIT,INSTANCE_INIT --> 
+        <module name="ExecutableStatementCount">  
+            <property name="max" value="20"/>  
+            <property name="tokens" value="CTOR_DEF,METHOD_DEF,STATIC_INIT,INSTANCE_INIT"/>  
+        </module> 
+        
+        <!--¡¡¼ì²éÔ´ÂëÎÄ¼þµÄ³¤¶È
+            max: ¶¨ÒåÒ»¸öÎÄ¼þËùÄÜÈÝÐíµÄÐÐÊý --> 
+        <module name="FileLength">  
+            <property name="max" value="1000"/>  
+        </module>
+        
+        <!--¡¡¼ì²éÔ´ÂëÃ¿ÐÐµÄ³¤¶È --> 
+        <module name="LineLength">  
+            <property name="max" value="80"/>  
+            <property name="ignorePattern" value="^ *\* *[^ ]+$"/>  
+        </module> 
+        
+        <!--¡¡¼ì²é·½·¨ºÍ¹¹ÔìÆ÷µÄ³¤¶È
+            max: ×î¶àÈÝÐíµÄÐÐÊý
+¡¡¡¡¡¡¡¡    countEmpty: ÊÇ·ñ¼ÆËã¿ÕÐÐ
+¡¡¡¡¡¡¡¡    tokens: ¶¨Òå¼ì²éµÄÀàÐÍ --> 
+        <module name="MethodLength">  
+            <property name="max" value="100"/>  
+            <property name="countEmpty" value="true"/>  
+            <property name="tokens" value="METHOD_DEF"/>  
+        </module> 
+        
+        <!--¡¡¼ì²éÒ»¸ö·½·¨»ò¹¹ÔìÆ÷µÄ²ÎÊýµÄÊýÁ¿
+            max: ¶¨Òå×î¶àÓÐ¶àÉÙ¸ö²ÎÊý
+¡¡¡¡¡¡¡¡    tokens: ¶¨Òå¼ì²éµÄÀàÐÍ¡¡ --> 
+        <module name="ParameterNumber">  
+            <property name="max" value="10"/>  
+            <property name="tokens" value="METHOD_DEF,CTOR_DEF"/>  
+        </module>
+        
+        
+        <!-- =============¿Õ¸ñ¼ì²é============= -->
+        <!--¡¡¼ì²é¿ÕµÄforÑ­»·³õÊ¼»¯Óï¾äµÄÌî³ä·û
+            option: ¶¨Òå³õÊ¼»¯Óï¾äÖÐÊÇ·ñÊ¹ÓÃ¿Õ¸ñ£¬ÀýÈç£ºspace±íÊ¾Ê¹ÓÃ¿Õ¸ñ£¬Ôòfor(int i = 0; i < 100; i++)
+            ¾ÍÊÇ·ûºÏ¸ñÊ½ÒªÇóµÄ£¬¶øfor(int i=0; i<100;i++)¾Í²»·ûºÏÒªÇó¡¡ --> 
+        <module name="EmptyForInitializerPad">  
+            <property name="option" value="space"/>  
+        </module>
+        
+        <!--¡¡¼ì²éfor iteratorÓï¾äÊÇ·ñÊ¹ÓÃ¿Õ¸ñ
+            option:¶¨Òå³õÊ¼»¯Óï¾äÊÇ·ñÊ¹ÓÃ¿Õ¸ñ£¬ÀýÈç£ºspace±íÊ¾Ê¹ÓÃ¿Õ¸ñ£¬Ôòfor(Iterator iterator = List.iterator();iterator.hasNext(); iterator.next())¾ÍÊÇÐÎÊ½ºÏÀíµÄ£¬·ñÔò¾ÍÊÇÐÎÊ½²»ºÏÀíµÄ --> 
+        <module name="EmptyForIteratorPad">  
+            <property name="option" value="space"/>  
+        </module> 
+        
+        <!--¡¡¼ì²éÖ¸¶¨±ê¼ÇÖ®ºóÃ»ÓÐ¿Õ¸ñ¡£ÈôÒª½ûÓÃÖ¸¶¨±ê¼ÇÖ®ºóµÄ»»ÐÐ·û£¬½«allowLineBreaksÊôÐÔÉèÎªfalse¼´¿É¡£ --> 
+        <module name="NoWhitespaceAfter"/>
+        
+        <!--¡¡¼ì²éÖ¸¶¨±ê¼ÇÖ®Ç°Ã»ÓÐ¿Õ¸ñ¡£ÈôÒªÔÊÐíÖ¸¶¨±ê¼ÇÖ®Ç°µÄ»»ÐÐ·û£¬½«allowLineBreaksÊôÐÔÉèÎªtrue¼´¿É --> 
+        <module name="NoWhitespaceBefore"/>
+        
+        <!--¡¡¼ì²é´úÂë×Ô¶¯»»ÐÐÊ±£¬ÔËËã·ûËù´¦Î»ÖÃµÄ²ßÂÔ
+            option: ¶¨ÒåÔËËã·ûµÄÎ»ÖÃ£¬eolÔÚÍ¬Ò»ÐÐ£¬nlÔÚÏÂÒ»ÐÐ
+¡¡¡¡¡¡¡¡    tokens: ¶¨Òå¼ì²éµÄÀàÐÍ --> 
+        <module name="OperatorWrap">  
+            <property name="tokens"   
+                value="ASSIGN, DIV, DIV_ASSIGN, PLUS_ASSIGN, MINUS, MINUS_ASSIGN, STAR, STAR_ASSIGN, MOD, MOD_ASSIGN, SR, SR_ASSIGN, BSR, BSR_ASSIGN, SL, SL_ASSIGN, BXOR, BXOR_ASSIGN, BOR, BOR_ASSIGN, BAND, BAND_ASSIGN,PLUS, QUESTION"/>  
+            <property name="option" value="eol"/>  
+        </module> 
+        
+        <!--¡¡¼ì²é·½·¨¶¨Òå¡¢¹¹ÔìÆ÷¶¨Òå¡¢·½·¨µ÷ÓÃ¡¢¹¹ÔìÆ÷µ÷ÓÃµÄ±êÊ¶·ûºÍ²ÎÊýÁÐ±íµÄ×óÔ²À¨ºÅÖ®¼äµÄÌî³ä·û
+            allowLineBreaks: ²ÎÊýÊÇ·ñÔÊÐíÔÚ²»Í¬ÐÐ
+¡¡¡¡¡¡¡¡    option: ÔÚ²ÎÊýºÍÀ¨ºÅ¡¢²ÎÊýºÍ±êÊ¶·ûÖ®¼äÊÇ·ñ°üº¬¿Õ¸ñ
+¡¡¡¡¡¡¡¡    tokens: ¼ì²éµÄÀàÐÍ --> 
+        <module name="MethodParamPad">  
+            <property name="allowLineBreaks" value="false"/>  
+            <property name="option" value="space"/>  
+            <property name="tokens" value="METHOD_DEF,CTOR_DEF"/>  
+        </module>
+        
+        <!--¡¡¼ì²éÔ²À¨ºÅµÄÌî³ä·û²ßÂÔ£¬Ò²¾ÍÊÇÔÚ×óÔ²À¨ºÅÖ®ºóºÍÓÒÔ²À¨ºÅÖ®Ç°ÊÇ·ñÐèÒªÓÐÒ»¸ö¿Õ¸ñ
+            option: space±íÊ¾ÓÐ¿Õ¸ñ£¬nospace±íÊ¾Ã»ÓÐ¿Õ¸ñ
+¡¡¡¡¡¡¡¡    tokens: ¶¨Òå¼ì²éµÄÀàÐÍ --> 
+        <module name="ParenPad">  
+            <property name="option" value="nospace"/>  
+        </module>
+        
+        <!--¡¡¼ì²éÀàÐÍ×ª»»µÄÔ²À¨ºÅµÄÌî³ä·û²ßÂÔ¡£Ò²¾ÍÊÇ£¬ÔÚ×óÔ²À¨ºÅÖ®ºóºÍÓÒÔ²À¨ºÅÖ®Ç°ÊÇ·ñÐèÒªÓÐÒ»¸ö¿Õ¸ñ
+            option: space±íÊ¾ÓÐ¿Õ¸ñ£¬nospace±íÊ¾Ã»ÓÐ¿Õ¸ñ
+¡¡¡¡¡¡¡¡    tokens: ¶¨Òå¼ì²éµÄÀàÐÍ --> 
+        <module name="TypecastParenPad">  
+            <property name="option" value="space"/>  
+        </module> 
+        
+        <!--¡¡¼ì²éÔ´ÂëÖÐÃ»ÓÐÖÆ±í·û£¨'\t'£© --> 
+        <module name="TabCharacter"/>
+
+        <!--¡¡¼ì²éÖ¸¶¨±ê¼ÇÖ®ºóÊÇ·ñ½ô¸úÁË¿Õ¸ñ
+        ¡¡    tokens: ¼ì²éµÄÀàÐÍ --> 
+        <module name="WhitespaceAfter">  
+            <property name="tokens" value="COMMA,SEMI,TYPECAST"/>  
+        </module>  
+        
+        <!--¡¡¼ì²éÖ¸¶¨±ê¼ÇµÄÖÜÎ§ÊÇ·ñÓÐ¿Õ¸ñ
+            ¿ÉÒÔÑ¡ÔñÐÔµØ´Ó¼ì²é²ßÂÔÖÐÅÅ³ý£¬Í¨¹ýÉèÖÃallowEmptyMethodsºÍallowEmptyConstructorsÊôÐÔ¼´¿É
+        ¡¡    tokens: ¼ì²éµÄÀàÐÍ --> 
+        <module name="WhitespaceAround">  
+            <property name="tokens" value="ASSIGN"/>  
+        </module> 
+        
+        
+        <!-- =============ÐÞÊÎ·û¼ì²é============= -->
+        <!--¡¡¼ì²é´úÂëÖÐµÄ±êÊ¶·ûµÄË³ÐòÊÇ·ñ·ûºÏ¡¶Java Language Specification¡·ÖÐµÄµÚ8.1.1¡¢8.3.1ÕÂ½ÚËù½¨ÒéµÄË³Ðò
+            ÕýÈ·µÄË³ÐòÓ¦µ±ÈçÏÂ£º
+¡¡¡¡¡¡¡¡    1. public
+¡¡¡¡¡¡¡¡    2. protected
+¡¡¡¡¡¡¡¡    3. private
+¡¡¡¡¡¡¡¡    4. abstract
+¡¡¡¡¡¡¡¡    5. static
+¡¡¡¡¡¡¡¡    6. final
+¡¡¡¡¡¡¡¡    7. transient
+¡¡¡¡¡¡¡¡    8. volatile
+¡¡¡¡¡¡¡¡    9. synchronized
+¡¡¡¡¡¡¡¡    10. native
+¡¡¡¡¡¡¡¡    11. strictfp --> 
+        <module name="ModifierOrder"/> 
+        
+        <!--¡¡ÔÚÒÔÏÂ²¿·Ö¼ì²éÊÇ·ñÓÐ¶àÓàµÄÐÞÊÎ·û£º
+¡¡¡¡¡¡¡¡    1. ½Ó¿ÚºÍ×¢½âµÄ¶¨Òå£»
+¡¡¡¡¡¡¡¡    2. finalÀàµÄ·½·¨µÄfinalÐÞÊÎ·û£»
+¡¡¡¡¡¡¡¡    3. ±»ÉùÃ÷ÎªstaticµÄÄÚ²¿½Ó¿ÚÉùÃ÷
+¡¡            tokens: ¼ì²éµÄÀàÐÍ -->
+        <module name="RedundantModifier">  
+            <property name="tokens" value="METHOD_DEF,VARIABLE_DEF"/>  
+        </module>
+        
+        
+        <!-- =============´úÂë¿é¼ì²é============= -->
+        <!--¡¡ÕÒµ½Ç¶Ì×´úÂë¿é£¬Ò²¾ÍÊÇÔÚ´úÂëÖÐÎÞ½ÚÖÆÊ¹ÓÃµÄ´úÂë¿é
+            allowInSwitchCase: ¶¨ÒåÊÇ·ñÔÊÐíswitch caseÖÐÊ¹ÓÃÇ¶Ì×µÄ´úÂë¿é --> 
+        <module name="AvoidNestedBlocks">  
+            <property name="allowInSwitchCase" value="true"/>  
+        </module>
+        
+        <!--¡¡¼ì²é¿Õ´úÂë¿é
+            option: ¶¨Òå´úÂë¿éÖÐÓ¦¸Ã°üº¬µÄÄÚÈÝ£¬ÀýÈç£ºstmt±íÊ¾Óï¾ä
+¡¡¡¡¡¡¡¡    tokens: ¼ì²éµÄÀàÐÍ -->
+        <module name="EmptyBlock">  
+            <property name="option" value="stmt"/>  
+        </module>
+        
+        <!--¡¡¼ì²é´úÂë¿éµÄ×ó»¨À¨ºÅµÄ·ÅÖÃÎ»ÖÃ
+            option: ¶¨Òå×ó´óÀ¨ºÅ'{'ÏÔÊ¾Î»ÖÃ£¬eolÔÚÍ¬Ò»ÐÐÏÔÊ¾£¬nlÔÚÏÂÒ»ÐÐÏÔÊ¾
+¡¡¡¡¡¡¡¡    maxLineLength: ´óÀ¨ºÅ'{'ËùÔÚÐÐÐÐ×î¶àÈÝÄÉµÄ×Ö·ûÊý
+¡¡¡¡¡¡¡¡    tokens: ¸ÃÊôÐÔÊÊÓÃµÄÀàÐÍ£¬Àý£ºCLASS_DEF,INTERFACE_DEF,METHOD_DEF,CTOR_DEF -->
+        <module name="LeftCurly">  
+            <property name="option" value="eol"/>  
+            <property name="maxLineLength" value="80"/>  
+            <property name="tokens" value="CLASS_DEF,INTERFACE_DEF,METHOD_DEF,CTOR_DEF"/>  
+        </module>
+        
+        <!--¡¡¼ì²é´úÂë¿éÖÜÎ§ÊÇ·ñÓÐ´óÀ¨ºÅ£¬¿ÉÒÔ¼ì²édo¡¢else¡¢if¡¢for¡¢whileµÈ¹Ø¼ü×ÖËù¿ØÖÆµÄ´úÂë¿é
+            tokens: ¶¨Òå¼ì²éµÄÀàÐÍ -->
+        <module name="NeedBraces"/>
+
+        <!--¡¡¼ì²éelse¡¢try¡¢catch±ê¼ÇµÄ´úÂë¿éµÄÓÒ»¨À¨ºÅµÄ·ÅÖÃÎ»ÖÃ
+            tokens: ¶¨Òå¼ì²éµÄÀàÐÍ -->
+        <module name="RightCurly">  
+            <property name="option" value="alone"/>  
+            <property name="tokens" value="LITERAL_TRY"/>  
+        </module> 
+        
+        
+        <!-- =============±àÂë¼ì²é============= -->
+        <!--¡¡¼ì²éÊÇ·ñÔÚÍ¬Ò»ÐÐ³õÊ¼»¯£¬ ÀýÈç£ºprivate int Age = nGe==1 ? 100 : 0; ¾ÍÓ¦¸Ã±ÜÃâ --> 
+        <module name="AvoidInlineConditionals"/>
+        
+        <!--¡¡¼ì²é¶¨ÒåÁË¹²±äequals()·½·¨µÄÀàÖÐÊÇ·ñÍ¬Ñù¸²¸ÇÁËequals(java.lang.Object)·½·¨ -->
+        <module name="CovariantEquals"/> 
+        
+        <!--¡¡¼ì²éswitchÓï¾äÖÐµÄdefaultÊÇ·ñÔÚËùÓÐµÄcase·ÖÖ§Ö®ºó -->
+        <module name="DefaultComesLast"/>
+        
+        <!-- ¼ì²é¿ÕµÄ´úÂë¶Î -->
+        <module name="EmptyStatement"/>
+        
+        <!--¡¡¼ì²é¸²¸ÇÁËequals()·½·¨µÄÀàÊÇ·ñÒ²¸²¸ÇÁËhashCode()·½·¨ -->
+        <module name="EqualsHashCode"/>
+        
+        <!--¡¡¼ì²éÀà»ò¶ÔÏóµÄ³ÉÔ±ÊÇ·ñÏÔÊ½µØ³õÊ¼»¯Îª³ÉÔ±ËùÊôÀàÐÍµÄÄ¬ÈÏÖµ
+        £¨¶ÔÏóÒýÓÃµÄÄ¬ÈÏÖµÎªnull£¬ÊýÖµºÍ×Ö·ûÀàÐÍµÄÄ¬ÈÏÖµÎª0£¬²¼¶ûÀàÐÍµÄÄ¬ÈÏÖµÎªfalse£© -->
+        <module name="ExplicitInitialization"/>
+        
+        <!--¡¡¼ì²éswitchÓï¾äÖÐÊÇ·ñ´æÔÚ¿çÔ½·ÖÖ§¡£
+        Èç¹ûÒ»¸öcase·ÖÖ§µÄ´úÂëÖÐÈ±ÉÙbreak¡¢return¡¢throw»òcontinueÓï¾ä£¬ÄÇÃ´¾Í»áµ¼ÖÂ¿çÔ½·ÖÖ§ -->
+        <module name="FallThrough"/>
+        
+        <!--¡¡¼ì²é±äÁ¿ÖµÃ»ÓÐ¸Ä¶¯µÄÇé¿öÏÂ£¬¸Ã±äÁ¿ÊÇ·ñ¶¨Òå³ÉÁËfinal -->
+        <module name="FinalLocalVariable"/> 
+        
+        <!--¡¡¼ì²é¾Ö²¿±äÁ¿»ò²ÎÊýÊÇ·ñ»áÕÚ±ÎÔÚÏàÍ¬ÀàÖÐ¶¨ÒåµÄ×Ö¶Î -->
+         <module name="HiddenField"/>
+         
+        <!--¡¡¼ì²éÊÇ·ñÓÐ²»ºÏ·¨µÄÊµÀý»¯²Ù×÷£¬ÊÇ·ñÊ¹ÓÃ¹¤³§·½·¨¸üºÃ -->
+        <module name="IllegalInstantiation"/>
+        
+        <!--¡¡·Ç·¨Òì³£²¶×½,²»ÔÊÐí²¶×½java.lang.Exception¡¢java.lang.Error¡¢java.lang.RuntimeExceptionµÄÐÐÎª -->
+        <module name="IllegalCatch"/>
+        
+        <!-- ¼ì²é×Ó±í´ïÊ½ÖÐÊÇ·ñÓÐ¸³Öµ²Ù×÷ -->
+        <module name="InnerAssignment"/>
+        
+        <!-- ¼ì²éÊÇ·ñÓÐ"Ä§Êõ"Êý×Ö -->
+        <module name="MagicNumber">
+           <property name="ignoreNumbers" value="0, 1"/>
+           <property name="ignoreAnnotation" value="true"/>
+        </module>
+        
+        <!--¡¡¼ì²éswitchÓï¾äÊÇ·ñº¬ÓÐdefault×Ó¾ä -->
+        <module name="MissingSwitchDefault"/>
+        
+        <!--¡¡¼ì²éÑ­»·¿ØÖÆ±äÁ¿ÊÇ·ñ±»ÐÞ¸Ä -->
+        <module name="ModifiedControlVariable"/>
+        
+        <!--¡¡¼ì²éÒ»¸ö×Ö·û´®±äÁ¿ÔÚ²»¸Ä±ä±äÁ¿ÖµµÄÇé¿öÏÂ»òÕß×Ö·û´®³öÏÖµÄ´ÎÊý
+            allowedDuplicates: ¶¨ÒåÔÚÀàÖÐÒ»¸ö×Ö·û´®±äÁ¿ÔÚ²»¸Ä±ä±äÁ¿ÖµµÄÇé¿öÏÂ»òÕß×Ö·û´®ËùÄÜÊ¹ÓÃµÄ×î¶à´ÎÊý -->
+        <module name="MultipleStringLiterals">  
+            <property name="allowedDuplicates" value="3"/>  
+        </module>
+        
+        <!--¡¡¼ì²éÒ»´ÎÉùÃ÷¶à¸ö±äÁ¿Ê±£¬±äÁ¿ÊÇ·ñÔÚÍ¬Ò»ÐÐ»òÕßÔÚÍ¬Ò»¸öÓï¾äÖÐ -->
+        <module name="MultipleVariableDeclarations"/>
+        
+        <!--¡¡ÏÞÖÆif-else´úÂë¿éµÄÇ¶Ì×²ãÊý£¨Ä¬ÈÏÖµÎª1£©-->
+        <module name="NestedIfDepth">  
+            <property name="max" value="1"/>  
+        </module>
+        
+        <!--¡¡ÏÞÖÆtry´úÂë¿éµÄÇ¶Ì×²ãÊý£¨Ä¬ÈÏÖµÎª1£©-->
+        <module name="NestedTryDepth">  
+            <property name="max" value="3"/>  
+        </module>
+        
+        <!-- È·±£Ò»¸öÀà¾ßÓÐÒ»¸ö°üÉùÃ÷£¬²¢ÇÒ£¨¿ÉÑ¡µØ£©°üÃûÒªÓëÔ´´úÂëÎÄ¼þËùÔÚµÄÄ¿Â¼ÃûÏàÆ¥Åä -->
+        <module name="PackageDeclaration"/>
+        
+        <!-- ²»ÔÊÐí¶Ô²ÎÊý½øÐÐ¸³Öµ -->
+        <module name="ParameterAssignment"/>
+        
+        <!-- ¼ì²éthrows×Ó¾äÖÐÊÇ·ñÉùÃ÷ÁË¶àÓàµÄÒì³£ -->
+        <module name="RedundantThrows">  
+            <property name="allowUnchecked" value="true"/>  
+            <property name="allowSubclasses" value="true"/>  
+        </module>
+        
+        <!-- ¼ì²éÊÇ·ñÊ¹ÓÃÁËthis -->
+        <module name="RequireThis">  
+            <property name="checkFields" value="false"/>  
+            <property name="checkMethods" value="false"/>  
+        </module>
+        
+        <!-- ½ûÖ¹Ê¹ÓÃSystem.out.println -->
+        <module name="Regexp">
+            <property name="format" value="System\.out\.println"/>
+            <property name="illegalPattern" value="true"/>
+        </module>
+        
+        <!-- ÏÞÖÆreturnÓï¾äµÄÊýÁ¿¡£Ä¬ÈÏÖµÎª2¡£¿ÉÒÔºöÂÔ¼ì²éÖ¸¶¨µÄ·½·¨£¨Ä¬ÈÏºöÂÔequals()·½·¨ -->
+        <module name="ReturnCount">  
+            <property name="max" value="3"/>  
+        </module>
+        
+        <!-- ¼ì²éÊÇ·ñÓÐ¹ýÓÚ¸´ÔÓµÄ²¼¶û±í´ïÊ½¡£ÏÖÔÚÄÜ¹»·¢ÏÖÖîÈçif (b == true)¡¢b || true¡¢!falseµÈÀàÐÍµÄ´úÂë -->
+        <module name="SimplifyBooleanExpression"/>
+        
+        <!-- ¼ì²éÊÇ·ñÓÐ¹ýÓÚ¸´ÔÓµÄ²¼¶ûÀàÐÍreturnÓï¾ä -->
+        <module name="SimplifyBooleanReturn"/> 
+        
+        <!-- ¼ì²éÔÚÅÐ¶Ï×Ö·û´®ÊÇ·ñÏàµÈÊ±ÊÇ·ñÊ¹ÓÃÁËÕýÈ·µÄÐÎÊ½ -->
+        <module name="StringLiteralEquality"/>
+        
+        <!-- ¼ì²éÒ»¸ö¸²¸ÇµÄclone()·½·¨ÊÇ·ñµ÷ÓÃÁËsuper.clone()·½·¨ -->
+        <module name="SuperClone"/> 
+        
+        <!-- ¼ì²éÒ»¸ö¸²¸ÇµÄfinalize()·½·¨ÊÇ·ñµ÷ÓÃÁËsuper.finalize()·½·¨ -->
+        <module name="SuperFinalize"/>
+        
+        <!-- ¼ì²é³õÊ¼»¯Êý×æÊ±£¬×îºóÒ»¸öÔªËØºóÃæÊÇ·ñ¼ÓÁË¶ººÅ£¬Èç¹û×óÓÒ´óÀ¨ºÅ¶¼ÔÚÍ¬Ò»ÐÐ£¬Ôò¿ÉÒÔ²»¼Ó¶ººÅ -->
+        <module name="ArrayTrailingComma"/>
+        
+        <!-- ¼ì²é´úÂëÖÐÊÇ·ñÊ¹ÓÃÁË²»±ØÒªµÄÔ²À¨ºÅ -->
+        <module name="UnnecessaryParentheses"/>
+        
+        
+        <!-- =============ÀàÉè¼Æ¼ì²é============= -->
+        <!-- ¼ì²éÀàÊÇ·ñ±»Éè¼ÆÎª¿ÉÀ©Õ¹µÄ£¬Èç¹ûÊÇ£¬Ôò·½·¨Ó¦¸Ãabstract¡¢final»òÕßÊÇ¿ÕµÄ -->
+        <module name="DesignForExtension"/>
+        
+        <!-- ¼ì²éÒ»¸öÖ»ÓÐË½ÓÐ¹¹ÔìÆ÷µÄÀàÊÇ·ñ±»ÉùÃ÷Îªfinal -->
+        <module name="FinalClass"/>
+        
+        <!-- È·±£¹¤¾ßÀà£¨ÔÚAPIÖÐÖ»ÓÐ¾²Ì¬·½·¨ºÍ×Ö¶ÎµÄÀà£©Ã»ÓÐÈÎºÎ¹«ÓÐ¹¹ÔìÆ÷ -->
+        <module name="HideUtilityClassConstructor"/>
+        
+        <!--¡¡¼ì²é½Ó¿ÚÊÇ·ñÖ»¶¨ÒåÁË±äÁ¿¶øÃ»ÓÐ¶¨Òå·½·¨£¬ÒòÎª½Ó¿ÚÓ¦¸ÃÓÃÀ´ÃèÊöÒ»¸öÀàÐÍ£¬ËùÒÔÖ»¶¨Òå±äÁ¿¶ø²»¶¨Òå·½·¨ÊÇ²»Ç¡µ±µÄ
+            allowMarkerInterfaces: ÊÇ·ñ¼ì²é¿Õ½Ó¿Ú -->
+        <module name="InterfaceIsType">  
+            <property name="allowMarkerInterfaces" value="true"/>  
+        </module>
+        
+        <!--¡¡½«Òì³£Å×³öÓï¾äµÄÊýÁ¿ÅäÖÃÎªÒ»¸öÖ¸¶¨µÄÏÞÖµ£¨Ä¬ÈÏÖµÎª1£©-->
+         <module name="ThrowsCount">  
+            <property name="max" value="7"/>  
+        </module>
+        
+        <!--¡¡¼ì²éÀà³ÉÔ±µÄ¿É¼ûÐÔ¡£
+            Ö»ÓÐstatic finalµÄÀà³ÉÔ±¿ÉÒÔÊÇ¹«ÓÐµÄ£¬ÆäËûµÄÀà³ÉÔ±±ØÐëÊÇË½ÓÐµÄ£¬³ý·ÇÉèÖÃÁËprotectedAllowedÊôÐÔ»òpackageAllowedÊôÐÔ
+            packageAllowed: ±äÁ¿°üÄÚ³ÉÔ±¿ÉÒÔ·ÃÎÊ
+            protectedAllowed: ±äÁ¿ÊÇÊÜ±£»¤µÄ
+            publicMemberPattern: ¿ÉÒÔ¹«¿ª·ÃÎÊµÄ±äÁ¿ËùÆ¥ÅäµÄÃüÃûÐÎÊ½ -->
+        <module name="VisibilityModifier">  
+            <property name="packageAllowed" value="false"/>  
+            <property name="protectedAllowed" value="false"/>  
+            <property name="publicMemberPattern" value="^seriaVersionUID$"/>  
+        </module>
+        
+        
+        <!-- =============ÖØ¸´¼ì²é============= -->
+        <!-- ÖðÐÐµØ±È½ÏËùÓÐµÄ´úÂëÐÐ£¬Èç¹ûÓÐÈô¸ÉÐÐÖ»ÓÐËõ½øÓÐËù²»Í¬£¬ÄÇÃ´¾Í±¨¸æ´æÔÚÖØ¸´´úÂë
+            min: ÔÊÐí´úÂëÖØ¸´µÄ×îÐ¡ÐÐÊý
+            charset: ÎÄ¼þËùÓÃµÄ×Ö·û¼¯ -->
+        <module name="StrictDuplicateCode">  
+            <property name="min" value="7"/>  
+            <property name="charset" value="UTF-8"/>  
+        </module> 
+        
+        <!-- =============¶ÈÁ¿¼ì²é============= -->
+        <!-- ÏÞÖÆÒ»¸ö±í´ïÊ½ÖÐµÄ&&¡¢||¡¢&¡¢|¡¢^µÈÂß¼­ÔËËã·ûµÄÊýÁ¿
+            max: ²¼¶ûÔËËã·ûÔÚÒ»ÌõÓï¾äÖÐÔÊÐí³öÏÖµÄ×î´óÊýÄ¿ -->
+        <module name="BooleanExpressionComplexity">  
+            <property name="max" value="7"/>  
+        </module>
+        
+        <!-- ²âÁ¿¸ø¶¨ÀàÖÐµÄÆäËûÀàµÄÊµÀý»¯²Ù×÷µÄ´ÎÊý -->
+        <module name="ClassDataAbstractionCoupling">  
+            <property name="max" value="7"/>  
+        </module>
+        
+        <!-- ¼ì²éÑ­»·¸´ÔÓ¶ÈÊÇ·ñ³¬³öÁËÖ¸¶¨µÄÏÞÖµ¡£
+        ¸Ã¸´ÔÓ¶ÈÓÉ¹¹ÔìÆ÷¡¢·½·¨¡¢¾²Ì¬³õÊ¼»¯³ÌÐò¡¢
+        ÊµÀý³õÊ¼»¯³ÌÐòÖÐµÄif¡¢while¡¢do¡¢for¡¢?:¡¢catch¡¢switch¡¢caseµÈÓï¾ä£¬ÒÔ¼°&&ºÍ||ÔËËã·ûµÄÊýÁ¿Ëù²âÁ¿ -->
+        <module name="CyclomaticComplexity">  
+            <property name="severity" value="ignore"/>  
+        </module>
+        
+        
+        <!-- =============ÔÓÏî¼ì²é============= -->
+        <!-- ¼ì²éÊý×é¶¨ÒåµÄ·ç¸ñ¡£ÓÐµÄ¿ª·¢ÕßÊ¹ÓÃJava·ç¸ñ£ºpublic static void main(String[] args)£»ÓÐµÄ¿ª·¢ÕßÊ¹ÓÃC·ç¸ñ£ºpublic static void main(String args[]) -->
+        <module name="ArrayTypeStyle">  
+            <property name="javaStyle" value="true"/>  
+        </module>
+        
+        <!-- ¼ì²é·½·¨/¹¹ÔìÆ÷µÄ²ÎÊýÊÇ·ñÊÇfinalµÄ¡£ÕâÏî¼ì²é»áºöÂÔ½Ó¿Ú·½·¨µÄ¼ì²é -->
+        <module name="FinalParameters"/>
+        
+        <!-- ¼ì²éJava´úÂëµÄËõ½øÊÇ·ñÕýÈ·
+            basicOffset: ¶¨Òå´úÂëÌåÏà¶ÔÓÚËùÊôµÄ´úÂëÌåµÄËõ½øÁ¿
+¡¡¡¡¡¡¡¡    braceAdjustment: ¶¨ÒåÀ¨ºÅµÄËõ½øÁ¿
+¡¡¡¡¡¡¡¡    caseIndent: ¶¨ÒåcaseµÄËõ½øÁ¿ -->
+        <module name="Indentation">  
+            <property name="basicOffset" value="4"/>  
+            <property name="braceAdjustment" value="0"/>  
+            <property name="caseIndent" value="4"/>  
+        </module>
+        
+        <!-- ¼ì²éÎÄ¼þÊÇ·ñÒÔÐÂÐÐ½áÊø -->
+        <module name="NewlineAtEndOfFile"/>
+        
+        <!-- ÕâÊÇÒ»ÏîFileSetCheck¼ì²é£¬Í¨¹ý¼ì²é¹Ø¼ü×ÖµÄÒ»ÖÂÐÔÊôÐÔÎÄ¼þ£¬Ëü¿ÉÒÔÈ·±£´úÂëµÄÓïÑÔ×ª»»µÄÕýÈ·ÐÔ -->
+        <module name="Translation">  
+            <property name="severity" value="info"/>  
+        </module>
+        
+        <!-- ¼ì²éÔ´ÂëÖÐÊÇ·ñÓÐÎ´×¢ÊÍµÄmain()·½·¨£¨µ÷ÊÔµÄ²ÐÁôÎï£©
+            excludedClasses: ¶¨Òå¿ÉÒÔ´ømain·½·¨µÄÀàËùÆ¥ÅäµÄÃû×ÖÐÎÊ½ -->
+        <module name="UncommentedMain">  
+            <property name="excludedClasses" value="^$"/>  
+        </module>
+        
+        <!-- ¼ì²élongÀàÐÍµÄ³£Á¿ÔÚ¶¨ÒåÊ±ÊÇ·ñÓÉ´óÐ´µÄ¡°L¡±¿ªÍ· -->
+        <module name="UpperEll"/>
+    </module>
+
+</module>
