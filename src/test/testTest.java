@@ -40,4 +40,7 @@ public class testTest {
 	public String sayHello10(){
         return "abcdefg. Hello jenkins, " ;
     }
+	public String sayHello11(){
+        return "abcdefg. Hello jenkins, " ;
+    }
 }
