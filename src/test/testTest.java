@@ -25,4 +25,7 @@ public class testTest {
 	public String sayHello5(){
         return "abcdefg. Hello jenkins, " ;
     }
+	public String sayHello6(){
+        return "abcdefg. Hello jenkins, " ;
+    }
 }
