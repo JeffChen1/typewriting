@@ -58,4 +58,7 @@ public class testTest {
 	public String sayHello15(){
         return "abcdefg. Hello jenkins, " ;
     }
+	public String sayHello16(){
+        return "abcdefg. Hello jenkins, " ;
+    }
 }
