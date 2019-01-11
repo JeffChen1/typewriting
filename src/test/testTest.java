@@ -82,4 +82,7 @@ public class testTest {
 	public String sayHello23(){
         return "abcdefg. Hello jenkins, " ;
     }
+	public String sayHello24(){
+        return "abcdefg. Hello jenkins, " ;
+    }
 }
