@@ -106,4 +106,7 @@ public class testTest {
 	public String sayHello31(){
         return "abcdefg. Hello jenkins, " ;
     }
+	public String sayHello32(){
+        return "abcdefg. Hello jenkins, " ;
+    }
 }
