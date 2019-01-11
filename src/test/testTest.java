@@ -115,4 +115,7 @@ public class testTest {
 	public String sayHello34(){
         return "abcdefg. Hello jenkins, " ;
     }
+	public String sayHello35(){
+        return "abcdefg. Hello jenkins, " ;
+    }
 }
