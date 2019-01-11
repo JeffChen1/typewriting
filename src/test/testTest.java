@@ -70,4 +70,7 @@ public class testTest {
 	public String sayHello19(){
         return "abcdefg. Hello jenkins, " ;
     }
+	public String sayHello20(){
+        return "abcdefg. Hello jenkins, " ;
+    }
 }
