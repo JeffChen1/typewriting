@@ -88,4 +88,7 @@ public class testTest {
 	public String sayHello25(){
         return "abcdefg. Hello jenkins, " ;
     }
+	public String sayHello26(){
+        return "abcdefg. Hello jenkins, " ;
+    }
 }
