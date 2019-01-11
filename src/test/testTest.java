@@ -97,4 +97,7 @@ public class testTest {
 	public String sayHello28(){
         return "abcdefg. Hello jenkins, " ;
     }
+	public String sayHello29(){
+        return "abcdefg. Hello jenkins, " ;
+    }
 }
