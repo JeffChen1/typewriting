@@ -76,4 +76,7 @@ public class testTest {
 	public String sayHello21(){
         return "abcdefg. Hello jenkins, " ;
     }
+	public String sayHello22(){
+        return "abcdefg. Hello jenkins, " ;
+    }
 }
