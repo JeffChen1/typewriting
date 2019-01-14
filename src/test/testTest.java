@@ -121,4 +121,7 @@ public class testTest {
 	public String sayHello36(){
         return "abcdefg. Hello jenkins, " ;
     }
+	public String sayHello37(){
+        return "abcdefg. Hello jenkins, " ;
+    }
 }
