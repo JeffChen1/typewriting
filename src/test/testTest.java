@@ -136,4 +136,8 @@ public class testTest {
 	public String sayHello41(){
         return "abcdefg. Hello jenkins, " ;
     }
+	static int q = 123;
+	private void hello() {
+		sayHello41();
+	}
 }
