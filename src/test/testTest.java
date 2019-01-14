@@ -133,4 +133,7 @@ public class testTest {
 	public String sayHello40(){
         return "abcdefg. Hello jenkins, " ;
     }
+	public String sayHello41(){
+        return "abcdefg. Hello jenkins, " ;
+    }
 }
