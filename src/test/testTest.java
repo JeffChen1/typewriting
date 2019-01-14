@@ -130,4 +130,7 @@ public class testTest {
 	public String sayHello39(){
         return "abcdefg. Hello jenkins, " ;
     }
+	public String sayHello40(){
+        return "abcdefg. Hello jenkins, " ;
+    }
 }
