@@ -23,4 +23,7 @@ public class test3 {
 	public String test37() {
 		return "777";
 	}
+	public String test38() {
+		return "888";
+	}
 }
