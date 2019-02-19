@@ -32,4 +32,7 @@ public class test3 {
 	public String test40() {
 		return "101010";
 	}
+	public String test41() {
+		return "101010";
+	}
 }
