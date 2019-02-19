@@ -26,4 +26,7 @@ public class test3 {
 	public String test38() {
 		return "888";
 	}
+	public String test39() {
+		return "999";
+	}
 }
