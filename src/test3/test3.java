@@ -29,4 +29,7 @@ public class test3 {
 	public String test39() {
 		return "999";
 	}
+	public String test40() {
+		return "101010";
+	}
 }
